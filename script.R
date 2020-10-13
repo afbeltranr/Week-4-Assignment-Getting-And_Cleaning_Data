@@ -35,26 +35,26 @@ if (!file.exists(dataPath)) {
 # First step: read the data
 
 
-# # read training data
-# trainingSubjects <- read.table(file.path(dataPath, "train", "subject_train.txt")) # information about the subjects
-# trainingValues <- read.table(file.path(dataPath, "train", "X_train.txt"))# experimental values obtained
-# trainingActivity <- read.table(file.path(dataPath, "train", "y_train.txt")) # Activity values
+# read training data
+trainingSubjects <- read.table(file.path(dataPath, "train", "subject_train.txt")) # information about the subjects
+trainingValues <- read.table(file.path(dataPath, "train", "X_train.txt"))# experimental values obtained
+trainingActivity <- read.table(file.path(dataPath, "train", "y_train.txt")) # Activity values
 
-# # read test data
-# testSubjects <- read.table(file.path(dataPath, "test", "subject_test.txt")) # information about the subjects
-# testValues <- read.table(file.path(dataPath, "test", "X_test.txt")) # experimental values obtained
-# testActivity <- read.table(file.path(dataPath, "test", "y_test.txt"))
-# # Activity values
+# read test data
+testSubjects <- read.table(file.path(dataPath, "test", "subject_test.txt")) # information about the subjects
+testValues <- read.table(file.path(dataPath, "test", "X_test.txt")) # experimental values obtained
+testActivity <- read.table(file.path(dataPath, "test", "y_test.txt"))
+# Activity values
 
 
-# # we read the features of this experiment
+# we read the features of this experiment
 
-# features <- read.table(file.path(dataPath, "features.txt"), as.is = TRUE)
+features <- read.table(file.path(dataPath, "features.txt"), as.is = TRUE)
 
-# # read activity labels
+# read activity labels
 
-# activities <- read.table(file.path(dataPath, "activity_labels.txt")) #We read the data
-# colnames(activities) <- c("activityId", "activityLabel")# Then we assign names to the columns
+activities <- read.table(file.path(dataPath, "activity_labels.txt")) #We read the data
+colnames(activities) <- c("activityId", "activityLabel")# Then we assign names to the columns
 
 #----------------------------------------
 #-----------STEP 1 -- Merge the test and training data sets to create one data set ----------------
@@ -63,10 +63,10 @@ if (!file.exists(dataPath)) {
 
 # First, we join the columns of each group, using cbind() as they have the same amount of obsevations (70% for training data and 30% for test data), then we put one table below the other using rbind:
 
-# Activity <- rbind(
-#   cbind(trainingSubjects, trainingValues, trainingActivity),
-#   cbind(testSubjects, testValues, testActivity)
-# )
+Activity <- rbind(
+  cbind(trainingSubjects, trainingValues, trainingActivity),
+  cbind(testSubjects, testValues, testActivity)
+)
 
  # As these are very large data sets, and R saves its objects in the RAM, we can save some memory removing the previous data tables because we now have the table 'Activity' which contains all the information:
 
@@ -137,4 +137,5 @@ ActivityMeans <- Activity %>%
 # output to file "tidy_data.txt"
 write.table(ActivityMeans, "tidy_data.txt", row.names = FALSE, 
             quote = FALSE)
+
 
