@@ -1,10 +1,5 @@
 # Week-4-Assignment-Getting-And_Cleaning_Data
----
-title: "Getting and cleaning data Week 4 Assignment"
-author: "Andres Felipe Beltran Rodriguez"
-date: "October 12, 2020"
-output: html_document
----
+
 
 # Getting-and-Cleaning-Data-Week-4-Assignment
 
